@@ -186,14 +186,13 @@ class Transformer:
 
     def set_transpose(self, in_, order):
         """
-        Set the order of dimensions, e.g. to convert OpenCV's HxWxC images
-        into CxHxW.
+        Set the input channel order for e.g. RGB to BGR conversion
+        as needed for the reference ImageNet model.
 
         Parameters
         ----------
-        in_ : which input to assign this dimension order
+        in_ : which input to assign this channel order
         order : the order to transpose the dimensions
-            for example (2,0,1) changes HxWxC into CxHxW and (1,2,0) reverts
         """
         self.__check_input(in_)
         if len(order) != len(self.inputs[in_]) - 1:
